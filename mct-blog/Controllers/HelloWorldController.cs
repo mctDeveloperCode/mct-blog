@@ -9,6 +9,11 @@ namespace mct_blog.Controllers
 		public IActionResult Index() => View();
 
 		// GET: /HelloWorld/Welcome/
-		public string Welcome(string name, int ID) => HtmlEncoder.Default.Encode($"Hello {name}, are you {ID} years old?");
+		public IActionResult Welcome(string name, int numTimes = 1)
+		{
+			ViewData["name"] = name;
+			ViewData["numTimes"] = numTimes;
+			return View();
+		}
 	}
 }
